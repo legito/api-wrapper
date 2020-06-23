@@ -2,21 +2,21 @@
 
 namespace Legito\Api\Wrapper\V1;
 
-use Legito\Api\Wrapper\Resource\V1\AdvancedStyle;
-use Legito\Api\Wrapper\Resource\V1\Country;
-use Legito\Api\Wrapper\Resource\V1\Currency;
-use Legito\Api\Wrapper\Resource\V1\DocumentRecord;
-use Legito\Api\Wrapper\Resource\V1\Category;
-use Legito\Api\Wrapper\Resource\V1\Info;
-use Legito\Api\Wrapper\Resource\V1\Share;
-use Legito\Api\Wrapper\Resource\V1\DocumentVersion;
-use Legito\Api\Wrapper\Resource\V1\TemplateSuite;
-use Legito\Api\Wrapper\Resource\V1\Timezone;
-use Legito\Api\Wrapper\Resource\V1\User;
-use Legito\Api\Wrapper\Resource\V1\UserGroup;
+use Legito\Api\Wrapper\V1\Resource\AdvancedStyle;
+use Legito\Api\Wrapper\V1\Resource\Country;
+use Legito\Api\Wrapper\V1\Resource\Currency;
+use Legito\Api\Wrapper\V1\Resource\DocumentRecord;
+use Legito\Api\Wrapper\V1\Resource\Category;
+use Legito\Api\Wrapper\V1\Resource\Info;
+use Legito\Api\Wrapper\V1\Resource\Share;
+use Legito\Api\Wrapper\V1\Resource\DocumentVersion;
+use Legito\Api\Wrapper\V1\Resource\TemplateSuite;
+use Legito\Api\Wrapper\V1\Resource\Timezone;
+use Legito\Api\Wrapper\V1\Resource\User;
+use Legito\Api\Wrapper\V1\Resource\UserGroup;
 
 /**
- * Class Legito
+ * Class Wrapper
  * @package Legito\Api\Wrapper
  * @author Marek Skopal, Legito s.r.o.
  * @license MIT

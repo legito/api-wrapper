@@ -1,6 +1,6 @@
 <?php
 
-namespace Legito\Api\Wrapper\Resource\V1;
+namespace Legito\Api\Wrapper\V1\Resource;
 
 use Legito\Api\Wrapper\Exception\ApiResponseException;
 use Legito\Api\Wrapper\Exception\NotFoundException;
@@ -8,7 +8,7 @@ use Legito\Api\Wrapper\V1\Client;
 
 /**
  * Class AbstractResource
- * @package Legito\Api\Wrapper\Resource
+ * @package Legito\Api\Wrapper\V1\Resource
  * @author Marek Skopal, Legito s.r.o.
  * @license MIT
  */

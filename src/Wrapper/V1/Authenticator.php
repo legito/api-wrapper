@@ -19,7 +19,7 @@ class Authenticator
     /**
      * Creates authentification JWT token
      * @param string $apiKey
-     * @param string $authHash
+     * @param string $privateKey
      * @return string
      */
     public static function createAuthToken(string $apiKey, string $privateKey): string

@@ -1,11 +1,11 @@
 <?php
 
-namespace Legito\Api\Wrapper\Resource\V1;
+namespace Legito\Api\Wrapper\V1\Resource;
 
 
 /**
  * Class User
- * @package Legito\Api\Wrapper\Resource\V1
+ * @package Legito\Api\Wrapper\V1\Resource
  * @author Marek Skopal, Legito s.r.o.
  * @license MIT
  */
