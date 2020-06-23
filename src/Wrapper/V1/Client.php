@@ -10,7 +10,7 @@ namespace Legito\Api\Wrapper\V1;
  */
 class Client
 {
-    protected const API_URL = 'https://www.legito.com/api/v1';
+    protected const API_URL = 'https://www.legito.com';
 
     protected const AUTH_HEADER = 'Authorization';
     protected const AUTH_HEADER_TYPE = 'Bearer ';
@@ -42,7 +42,7 @@ class Client
                 'Content-Type' => 'application/json',
                 self::AUTH_HEADER => ''
             ],
-            'base_url' => $url ?? self::API_URL,
+            'base_url' => ($url ?? self::API_URL) . '/api/v1',
             'user_agent' => 'legito-wrapper/2.0.0',
             'curl_options' => [CURLOPT_SSL_VERIFYPEER => 0]
         ]);
