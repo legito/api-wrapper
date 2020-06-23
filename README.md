@@ -23,18 +23,19 @@ use Legito\Api\Legito;
 // Configure API wrapper
 $apiKey = 'ad2e37c9-ee63-4479-9295-36cf21674343';
 $privateKey = '37c2f78b02';
-//$url = 'https://example.legito.com/api/v1.0'; // use only if you run Legito on custom server
+//$url = 'https://example.legito.com'; // use only if you run Legito on custom server
 
 // Create instance
-$legitoApi = new Legito($apiKey, $privateKey, $url)->getWrapper();
+$legitoApi = (new Legito($apiKey, $privateKey, $url))->getWrapper();
 
 // Call some API methods
 // ------------------------------------------------------------------------
 
-// Creates smart document from template suite ID 2255. Insets some data to input 
+// Creates document version from template suite ID 2255. Inserts some data to input 
 // element 'first_party_name1' and downloads it.
-$smartDocument = $this->legitoApi->postSmartDocumentData(
-    2255,
+$templateSuiteId = 2255;
+$smartDocument = $legitoApi->postDocumentVersionData(
+    $templateSuiteId,
     [
          [
               'name' => 'first_party_name1',
@@ -42,7 +43,7 @@ $smartDocument = $this->legitoApi->postSmartDocumentData(
          ]
     ]
 );
-$documentsData = $this->legitoApi->getSmartDocumentDownload($smartDocument->code, 'pdf');
+$documentsData = $legitoApi->getDocumentVersionDownload($smartDocument->code, 'pdf');
 foreach($documentsData as $documentData) {
     file_put_contents(
         $documentData->filename,
