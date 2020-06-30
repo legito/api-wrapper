@@ -94,6 +94,8 @@ class DocumentVersion extends AbstractResource
             [
                 'code' => $code,
                 'format' => $format,
+            ],
+            [
                 'templateId' => $templateId,
                 'advancedStyleId' => $advancedStyleId
             ]
