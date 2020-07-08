@@ -39,21 +39,34 @@ class Legito
 
     /**
      * Returns last version wrapper
-     * @return Wrapper
+     * @return \Legito\Api\Wrapper\V2\Wrapper
      */
-    public function getWrapper(): Wrapper
+    public function getWrapper(): \Legito\Api\Wrapper\V2\Wrapper
     {
-        return $this->getWraperV1();
+        return $this->getWrapperV2();
     }
 
     /**
-     * Returs wrapper version v1
-     * @return Wrapper
+     * Returns wrapper version v1
+     * @return  \Legito\Api\Wrapper\V1\Wrapper
      */
-    public function getWraperV1(): Wrapper
+    public function getWrapperV1(): \Legito\Api\Wrapper\V1\Wrapper
     {
-        if (!($this->wrapper instanceof Wrapper)) {
-            $this->wrapper = new Wrapper($this->apiKey, $this->privateKey, $this->url);
+        if (!($this->wrapper instanceof \Legito\Api\Wrapper\V1\Wrapper)) {
+            $this->wrapper = new \Legito\Api\Wrapper\V1\Wrapper($this->apiKey, $this->privateKey, $this->url);
+        }
+
+        return $this->wrapper;
+    }
+
+    /**
+     * Returns wrapper version v2
+     * @return \Legito\Api\Wrapper\V2\Wrapper
+     */
+    public function getWrapperV2(): \Legito\Api\Wrapper\V2\Wrapper
+    {
+        if (!($this->wrapper instanceof \Legito\Api\Wrapper\V2\Wrapper)) {
+            $this->wrapper = new \Legito\Api\Wrapper\V2\Wrapper($this->apiKey, $this->privateKey, $this->url);
         }
 
         return $this->wrapper;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Legito\Api\Wrapper\V1;
+namespace Legito\Api\Wrapper\V2;
 
 use Legito\Api\Wrapper\Utils\WrapperInfo;
 
 /**
  * Class Client
- * @package Legito\Api\Wrapper\V1
+ * @package Legito\Api\Wrapper\V2
  * @author Marek Skopal, Legito s.r.o.
  * @license MIT
  */
@@ -44,7 +44,7 @@ class Client
                 'Content-Type' => 'application/json',
                 self::AUTH_HEADER => ''
             ],
-            'base_url' => ($url ?? self::API_URL) . '/api/v1',
+            'base_url' => ($url ?? self::API_URL) . '/api/v2',
             'user_agent' => WrapperInfo::getVersion(),
             'curl_options' => [CURLOPT_SSL_VERIFYPEER => 0]
         ]);
