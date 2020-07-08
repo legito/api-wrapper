@@ -4,7 +4,7 @@ namespace Legito\Api\Wrapper\V2\Resource;
 
 
 /**
- * Class Currency
+ * Class File
  * @package Legito\Api\Wrapper\V2\Resource
  * @author Marek Skopal, Legito s.r.o.
  * @license MIT

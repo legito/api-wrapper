@@ -9,6 +9,7 @@ use Legito\Api\Wrapper\V2\Resource\DocumentRecord;
 use Legito\Api\Wrapper\V2\Resource\Category;
 use Legito\Api\Wrapper\V2\Resource\File;
 use Legito\Api\Wrapper\V2\Resource\Info;
+use Legito\Api\Wrapper\V2\Resource\NotificationSetting;
 use Legito\Api\Wrapper\V2\Resource\Share;
 use Legito\Api\Wrapper\V2\Resource\DocumentVersion;
 use Legito\Api\Wrapper\V2\Resource\TemplateSuite;
@@ -46,6 +47,9 @@ class Wrapper
     /** @var File */
     protected $fileResource;
 
+    /** @var NotificationSetting */
+    protected $notificationSettingResource;
+
     /** @var Share */
     protected $shareResource;
 
@@ -76,6 +80,7 @@ class Wrapper
         $this->documentVersionResource = new DocumentVersion($client);
         $this->fileResource = new File($client);
         $this->infoResource = new Info($client);
+        $this->notificationSettingResource = new NotificationSetting($client);
         $this->shareResource = new Share($client);
         $this->timezoneResource = new Timezone($client);
         $this->templateSuiteResource = new TemplateSuite($client);
@@ -263,6 +268,29 @@ class Wrapper
     public function getInfo(): \stdClass
     {
         return $this->infoResource->getInfo();
+    }
+
+    /**
+     * Returns user notification settings
+     * @param string $userIdOrEmail
+     * @return \stdClass
+     * @throws \Legito\Api\Wrapper\Exception\NotFoundException
+     */
+    public function getNotificationSetting(string $userIdOrEmail): \stdClass
+    {
+        return $this->notificationSettingResource->getNotificationSetting($userIdOrEmail);
+    }
+
+    /**
+     * Updates user notification settings
+     * @param string $userIdOrEmail
+     * @param array $notificationSettingData
+     * @return \stdClass
+     * @throws \Legito\Api\Wrapper\Exception\NotFoundException
+     */
+    public function putNotificationSetting(string $userIdOrEmail, array $notificationSettingData): \stdClass
+    {
+        return $this->notificationSettingResource->putNotificationSetting($userIdOrEmail, $notificationSettingData);
     }
 
     /**
