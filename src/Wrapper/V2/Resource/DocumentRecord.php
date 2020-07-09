@@ -11,7 +11,15 @@ namespace Legito\Api\Wrapper\V2\Resource;
  */
 class DocumentRecord extends AbstractResource
 {
+    public const ANONYMIZE_FIELD_MONEY = 'money';
+    public const ANONYMIZE_FIELD_CLAUSES = 'clauses';
+    public const ANONYMIZE_FIELD_DATE = 'date';
+    public const ANONYMIZE_FIELD_TEXTFIELD = 'textfield';
+    public const ANONYMIZE_FIELD_PARAGRAPHS = 'paragraphs';
+
     protected const RESOURCE = '/document-record';
+
+    protected const RELATION_ANONYMIZE = '/anonymize';
 
     /**
      * Returns document record list
@@ -70,6 +78,29 @@ class DocumentRecord extends AbstractResource
             self::RESOURCE,
             [
                 'code' => $code,
+            ]
+        );
+
+        return $this->processResponse($result);
+    }
+
+    /**
+     * Anonymize document record
+     * @param string $code
+     * @param array|string[] $fields
+     * @return \stdClass
+     */
+    public function getAnonymizeDocumentRecord(
+        string $code,
+        array $fields = [self::ANONYMIZE_FIELD_MONEY, self::ANONYMIZE_FIELD_CLAUSES, self::ANONYMIZE_FIELD_DATE, self::ANONYMIZE_FIELD_TEXTFIELD, self::ANONYMIZE_FIELD_PARAGRAPHS]
+    ): \stdClass {
+        $result = $this->client->get(
+            self::RESOURCE . self::RELATION_ANONYMIZE,
+            [
+                'code' => $code
+            ],
+            [
+                'fields' => $fields,
             ]
         );
 

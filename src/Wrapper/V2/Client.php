@@ -66,7 +66,7 @@ class Client
 
         $url = $this->createUrlFromParameters($baseUrl, $parameters);
 
-        return $this->restClient->get($url, $queryParameters);
+        return $this->restClient->get($url, $this->sanitizeQueryParameters($queryParameters));
     }
 
     /**
@@ -140,5 +140,29 @@ class Client
         $token = Authenticator::createAuthToken($this->apiKey, $this->privateKey);
 
         $this->restClient->options['headers'][self::AUTH_HEADER] = self::AUTH_HEADER_TYPE . $token;
+    }
+
+    /**
+     * Sanitizes query parameters
+     * @param $queryParameters
+     * @return array|null
+     */
+    protected function sanitizeQueryParameters(?array $queryParameters): ?array
+    {
+        if(!empty($queryParameters)) {
+            $sanitizedQueryParameters = [];
+
+            foreach ($queryParameters as $queryParameter => $queryParameterValue) {
+                if (is_array($queryParameterValue)) {
+                    $sanitizedQueryParameters[$queryParameter] = implode('|', $queryParameterValue);
+                } else {
+                    $sanitizedQueryParameters[$queryParameter] = $queryParameterValue;
+                }
+            }
+
+            return $sanitizedQueryParameters;
+        }
+
+        return null;
     }
 }

@@ -166,6 +166,19 @@ class Wrapper
     }
 
     /**
+     * Anonymize document record
+     * @param string $code
+     * @param array|string[] $fields
+     * @return \stdClass
+     */
+    public function getAnonymizeDocumentRecord(
+        string $code,
+        array $fields = [DocumentRecord::ANONYMIZE_FIELD_MONEY, DocumentRecord::ANONYMIZE_FIELD_CLAUSES, DocumentRecord::ANONYMIZE_FIELD_DATE, DocumentRecord::ANONYMIZE_FIELD_TEXTFIELD, DocumentRecord::ANONYMIZE_FIELD_PARAGRAPHS]
+    ): \stdClass {
+        return $this->documentRecordResource->getAnonymizeDocumentRecord($code, $fields);
+    }
+
+    /**
      * Returns document version elements data
      * @param string $code
      * @param string|null $listType
