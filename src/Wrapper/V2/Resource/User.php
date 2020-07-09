@@ -17,12 +17,29 @@ class User extends AbstractResource
 
     /**
      * Returns user list
+     * @param array|null $id
+     * @param array|null $email
+     * @param int|null $limit
+     * @param int|null $offset
      * @return array
-     * @throws \RestClientException
+     * @throws \Legito\Api\Wrapper\Exception\NotFoundException
      */
-    public function getUser(): array
-    {
-        $result = $this->client->get(self::RESOURCE);
+    public function getUser(
+        ?array $id = NULL,
+        ?array $email = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL
+    ): array {
+        $result = $this->client->get(
+            self::RESOURCE,
+            [],
+            [
+                'id' => $id,
+                'email' => $email,
+                'limit' => $limit,
+                'offset' => $offset,
+            ]
+        );
 
         return $this->processResponse($result);
     }

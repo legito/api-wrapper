@@ -130,16 +130,24 @@ class Wrapper
 
     /**
      * Returns document record list
+     * @param int[]|null $id
+     * @param string[]|null $code
      * @param int|null $limit Min limit is 0; Max limit is 1000
      * @param int|null $offset
-     * @param int|null $templateSuiteId
+     * @param int[]|null $templateSuiteId
      * @param bool|null $deleted
      * @return array
      * @throws \RestClientException
      */
-    public function getDocumentRecord(?int $limit = NULL, ?int $offset = NULL, ?int $templateSuiteId = NULL, ?bool $deleted = NULL): array
-    {
-        return $this->documentRecordResource->getDocumentRecord($limit, $offset, $templateSuiteId, $deleted);
+    public function getDocumentRecord(
+        ?array $id = NULL,
+        ?array $code = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        ?array $templateSuiteId = NULL,
+        ?bool $deleted = NULL
+    ): array {
+        return $this->documentRecordResource->getDocumentRecord($id, $code, $limit, $offset, $templateSuiteId, $deleted);
     }
 
     /**
@@ -388,12 +396,20 @@ class Wrapper
 
     /**
      * Returns user list
+     * @param array|null $id
+     * @param array|null $email
+     * @param int|null $limit
+     * @param int|null $offset
      * @return array
-     * @throws \RestClientException
+     * @throws \Legito\Api\Wrapper\Exception\NotFoundException
      */
-    public function getUser(): array
-    {
-        return $this->userResource->getUser();
+    public function getUser(
+        ?array $id = NULL,
+        ?array $email = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL
+    ): array {
+        return $this->userResource->getUser($id, $email, $limit, $offset);
     }
 
     /**

@@ -23,19 +23,29 @@ class DocumentRecord extends AbstractResource
 
     /**
      * Returns document record list
+     * @param int[]|null $id
+     * @param string[]|null $code
      * @param int|null $limit Min limit is 0; Max limit is 1000
      * @param int|null $offset
-     * @param int|null $templateSuiteId
+     * @param int[]|null $templateSuiteId
      * @param bool|null $deleted
      * @return array
      * @throws \RestClientException
      */
-    public function getDocumentRecord(?int $limit = NULL, ?int $offset = NULL, ?int $templateSuiteId = NULL, ?bool $deleted = NULL): array
-    {
+    public function getDocumentRecord(
+        ?array $id = NULL,
+        ?array $code = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        ?array $templateSuiteId = NULL,
+        ?bool $deleted = NULL
+    ): array {
         $result = $this->client->get(
             self::RESOURCE,
             [],
             [
+                'id' => $id,
+                'code' => $code,
                 'limit' => $limit,
                 'offset' => $offset,
                 'templateSuiteId' => $templateSuiteId,
