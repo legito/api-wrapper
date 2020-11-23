@@ -1,9 +1,13 @@
 # legito/api-wrapper
 PHP wrapper for Legito REST API requests.
 
-Wrapper currently support Legito API v1. Legacy API is not supported anymore.
+Wrapper currently support:
+- Legito API v1
+- Legito API v2
 
-English documentation for API [https://app.swaggerhub.com/apis-docs/Legito/legito-api/1](https://app.swaggerhub.com/apis-docs/Legito/legito-api/1)
+Legacy API is not supported anymore.
+
+English documentation for API [https://app.swaggerhub.com/apis-docs/Legito/legito-api/2](https://app.swaggerhub.com/apis-docs/Legito/legito-api/2)
 
 
 ## Install
@@ -31,7 +35,7 @@ $legitoApi = (new Legito($apiKey, $privateKey, $url))->getWrapper();
 // Call some API methods
 // ------------------------------------------------------------------------
 
-// Creates document version from template suite ID 2255. Inserts some data to input 
+// Creates document version from template suite ID 2255. Inserts some data to input
 // element 'first_party_name1' and downloads it.
 $templateSuiteId = 2255;
 $smartDocument = $legitoApi->postDocumentVersionData(
@@ -58,7 +62,7 @@ print_r($users);
 // Creates two users in your workspace.
 $legitoApi->postUser(
     [
-         [       
+         [
             'email' => 'johndoe@legito.com',
             'name' => 'John Doe'
          ],
