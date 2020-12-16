@@ -8,4 +8,8 @@ namespace Legito\Api\Wrapper\Exception;
  * @author Marek Skopal, Legito s.r.o.
  * @license MIT
  */
-class ApiResponseException extends \RestClientException {}
+class ApiResponseException extends \RestClientException
+{
+    /** @var array */
+    public $errors;
+}
