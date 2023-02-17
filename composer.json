@@ -10,7 +10,7 @@
 		"tcdent/php-restclient": "^0.1.7",
 		"ext-curl": "*",
 		"ext-json": "*",
-		"firebase/php-jwt": "^5.2"
+		"firebase/php-jwt": "^6.0"
 	},
 	"minimum-stability": "stable",
 	"config": {
